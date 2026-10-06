@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Política de privacidad · checkin-agent</title>
+<style>:root{font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:#182b36;background:#f4f7f8;line-height:1.65}*{box-sizing:border-box}body{margin:0}header,main,footer{max-width:860px;margin:auto;padding:24px}header{border-bottom:1px solid #d5dfe3}nav{display:flex;gap:20px;flex-wrap:wrap}a{color:#14695d}h1{line-height:1.15;font-size:clamp(32px,6vw,48px);letter-spacing:-.03em}h2{font-size:23px;margin-top:32px}p,li{max-width:72ch}main{background:white;margin-top:24px;margin-bottom:24px;border-radius:18px;box-shadow:0 8px 32px #182b3608;padding:32px}.label{display:inline-block;padding:4px 12px;background:#e5f3ef;border-radius:20px;color:#14695d;font-weight:600}.note{padding:16px;border-left:4px solid #14695d;background:#f0f7f5}footer{font-size:14px;color:#53656e}@media(max-width:600px){main{margin:12px;padding:24px}}</style>
+</head>
+<body>
+<header><strong>checkin-agent</strong><nav aria-label="Navegación"><a href="index.html">Aplicación</a><a href="privacy.html">Privacidad</a><a href="terms.html">Condiciones de uso</a></nav></header>
+<main>
+<h1>Política de privacidad</h1>
+<p>Esta política describe el funcionamiento actual de checkin-agent, una herramienta privada de uso personal del propietario de esta aplicación.</p>
+<h2>Datos y permisos</h2>
+<p>La aplicación solicita únicamente el permiso <code>gmail.readonly</code>. Este permiso permite leer el correo de la cuenta autorizada, incluido contenido que puede ser privado. La aplicación selecciona mensajes relacionados con viajes y puede procesar remitentes, fechas, asuntos, texto, pasajeros, trayectos, horarios y referencias de reserva presentes en esos mensajes.</p>
+<p>También utiliza una credencial OAuth para renovar el acceso y verifica que Gmail pertenece a la cuenta configurada. No solicita permisos para enviar, modificar o eliminar correos.</p>
+<h2>Finalidad</h2>
+<p>Los datos se utilizan para identificar reservas y cambios de vuelos, detectar datos que faltan y evaluar cuándo podría realizarse el check-in. Actualmente la aplicación solo realiza lecturas y comprobaciones; el check-in está desactivado.</p>
+<p>No se venden datos, no se usan para publicidad y no se envían correos ni reservas a modelos de inteligencia artificial para su análisis o entrenamiento.</p>
+<h2>Procesamiento y almacenamiento</h2>
+<p>Gmail proporciona los mensajes mediante su API. El procesamiento se realiza en el ordenador del propietario o en un runner temporal de GitHub Actions dentro de un repositorio privado. GitHub actúa como proveedor del entorno de ejecución; las páginas informativas públicas no reciben el contenido del correo.</p>
+<p>La credencial se guarda localmente en una carpeta privada o como secreto cifrado de GitHub Actions. Durante la ejecución, el runner puede utilizarla para acceder a Gmail. No se publica en el código, en estas páginas ni en artifacts.</p>
+<p>Los informes detallados locales permanecen en el equipo del propietario hasta que los elimina. En la nube, el informe detallado permanece en el runner temporal y no se sube como artifact; desaparece al finalizar el trabajo. Los logs y resúmenes de Actions contienen contadores y códigos de error, sin cuerpos de mensajes, nombres de pasajeros, referencias de reserva ni credenciales. Su conservación depende de la configuración de GitHub.</p>
+<h2>Control y revocación</h2>
+<p>El propietario puede revocar el acceso de la aplicación en <a href="https://myaccount.google.com/connections" rel="noreferrer">las conexiones de su cuenta Google</a>, eliminar la credencial local y el secreto de GitHub, y borrar informes y ejecuciones conservadas. Revocar el permiso detiene nuevas lecturas; no elimina por sí solo los informes locales existentes.</p>
+<h2>Uso limitado de datos Google</h2>
+<p>El uso y la transferencia de información obtenida mediante las API de Google se limitan a las funciones descritas y se ajustan a la <a href="https://developers.google.com/terms/api-services-user-data-policy" rel="noreferrer">Política de datos de usuario de los servicios API de Google</a>, incluidos sus requisitos de uso limitado.</p>
+<h2>Visitas a estas páginas</h2>
+<p>Estas páginas estáticas no contienen formularios, rastreadores ni analítica propios. Al publicarse en GitHub Pages, el proveedor puede procesar información técnica de la visita conforme a su <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noreferrer">política de privacidad</a>.</p>
+<h2>Contacto y cambios</h2>
+<p>La aplicación no acepta altas de terceros. Su propietario se identifica mediante la <a href="https://github.com/vitoremen" rel="noreferrer">cuenta de GitHub vitoremen</a>. Esta política deberá actualizarse antes de introducir nuevas funciones que cambien el tratamiento de datos.</p>
+</main>
+<footer>Herramienta personal de <a href="https://github.com/vitoremen" rel="noreferrer">vitoremen</a>. Última actualización: 6 de octubre de 2026.</footer>
+</body>
+</html>
