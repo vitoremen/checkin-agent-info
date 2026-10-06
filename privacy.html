@@ -10,26 +10,28 @@
 <body>
 <header><strong>checkin-agent</strong><nav aria-label="Navegación"><a href="index.html">Aplicación</a><a href="privacy.html">Privacidad</a><a href="terms.html">Condiciones de uso</a></nav></header>
 <main>
+<p class="eyebrow">Uso personal · cuenta autorizada</p>
 <h1>Política de privacidad</h1>
-<p>Esta política describe el funcionamiento actual de checkin-agent, una herramienta privada de uso personal del propietario de esta aplicación.</p>
-<h2>Datos y permisos</h2>
-<p>La aplicación solicita únicamente el permiso <code>gmail.readonly</code>. Este permiso permite leer el correo de la cuenta autorizada, incluido contenido que puede ser privado. La aplicación selecciona mensajes relacionados con viajes y puede procesar remitentes, fechas, asuntos, texto, pasajeros, trayectos, horarios y referencias de reserva presentes en esos mensajes.</p>
-<p>También utiliza una credencial OAuth para renovar el acceso y verifica que Gmail pertenece a la cuenta configurada. No solicita permisos para enviar, modificar o eliminar correos.</p>
-<h2>Finalidad</h2>
-<p>Los datos se utilizan para identificar reservas y cambios de vuelos, detectar datos que faltan y evaluar cuándo podría realizarse el check-in. Actualmente la aplicación solo realiza lecturas y comprobaciones; el check-in está desactivado.</p>
-<p>No se venden datos, no se usan para publicidad y no se envían correos ni reservas a modelos de inteligencia artificial para su análisis o entrenamiento.</p>
-<h2>Procesamiento y almacenamiento</h2>
-<p>Gmail proporciona los mensajes mediante su API. El procesamiento se realiza en el ordenador del propietario o en un runner temporal de GitHub Actions dentro de un repositorio privado. GitHub actúa como proveedor del entorno de ejecución; las páginas informativas públicas no reciben el contenido del correo.</p>
-<p>La credencial se guarda localmente en una carpeta privada o como secreto cifrado de GitHub Actions. Durante la ejecución, el runner puede utilizarla para acceder a Gmail. No se publica en el código, en estas páginas ni en artifacts.</p>
-<p>Los informes detallados locales permanecen en el equipo del propietario hasta que los elimina. En la nube, el informe detallado permanece en el runner temporal y no se sube como artifact; desaparece al finalizar el trabajo. Los logs y resúmenes de Actions contienen contadores y códigos de error, sin cuerpos de mensajes, nombres de pasajeros, referencias de reserva ni credenciales. Su conservación depende de la configuración de GitHub.</p>
-<h2>Control y revocación</h2>
-<p>El propietario puede revocar el acceso de la aplicación en <a href="https://myaccount.google.com/connections" rel="noreferrer">las conexiones de su cuenta Google</a>, eliminar la credencial local y el secreto de GitHub, y borrar informes y ejecuciones conservadas. Revocar el permiso detiene nuevas lecturas; no elimina por sí solo los informes locales existentes.</p>
-<h2>Uso limitado de datos Google</h2>
-<p>El uso y la transferencia de información obtenida mediante las API de Google se limitan a las funciones descritas y se ajustan a la <a href="https://developers.google.com/terms/api-services-user-data-policy" rel="noreferrer">Política de datos de usuario de los servicios API de Google</a>, incluidos sus requisitos de uso limitado.</p>
-<h2>Visitas a estas páginas</h2>
-<p>Estas páginas estáticas no contienen formularios, rastreadores ni analítica propios. Al publicarse en GitHub Pages, el proveedor puede procesar información técnica de la visita conforme a su <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noreferrer">política de privacidad</a>.</p>
-<h2>Contacto y cambios</h2>
-<p>La aplicación no acepta altas de terceros. Su propietario se identifica mediante la <a href="https://github.com/vitoremen" rel="noreferrer">cuenta de GitHub vitoremen</a>. Esta política deberá actualizarse antes de introducir nuevas funciones que cambien el tratamiento de datos.</p>
+<p>Este proyecto organiza información de vuelos y prepara avisos para el propietario de una única cuenta autorizada.</p>
+<h2>Datos utilizados</h2>
+<p>Se consultan los correos y adjuntos relevantes para reservas, billetes, itinerarios, cambios y cancelaciones. Las fichas privadas pueden incluir pasajero, aerolínea, vuelo, aeropuertos, fechas y zonas horarias, localizador de aerolínea, referencia de agencia y datos útiles del billete. Los datos ausentes se señalan como pendientes; no se inventan.</p>
+<h2>Dos accesos separados</h2>
+<p>El cliente OAuth propio de este proyecto utiliza el alcance <code>gmail.readonly</code> para diagnósticos opcionales. Ese acceso permite consultar el correo, pero no enviarlo.</p>
+<p>Los recordatorios operativos son tareas personales de ChatGPT que utilizan, por separado, el conector de Gmail autorizado por el propietario para leer los mensajes relevantes y enviar los avisos a su propia cuenta.</p>
+<h2>Finalidad y procesamiento</h2>
+<p>Los datos se usan para identificar vuelos futuros, conservar sus cambios, buscar el localizador de la aerolínea y avisar 24 horas antes de la salida con información para hacer el check-in manualmente. No se venden ni se utilizan para publicidad.</p>
+<p>ChatGPT procesa los mensajes consultados mediante el conector autorizado. El registro se conserva en los datos privados de las tareas personales y los avisos enviados permanecen en Gmail. Este uso está sujeto a los ajustes y condiciones de las cuentas de Google y OpenAI del propietario.</p>
+<p>Los diagnósticos opcionales del cliente OAuth propio pueden ejecutarse localmente o en un repositorio privado de GitHub. Sus tokens se mantienen en almacenamiento privado o secretos cifrados; no deben publicarse en código, registros o artefactos. Los informes locales se conservan hasta que el propietario los elimine. Los registros técnicos deben limitarse a información agregada.</p>
+<p>Los correos, localizadores y datos personales reales de las reservas no se incluyen en el código del repositorio ni en estas páginas públicas.</p>
+<h2>Control y eliminación</h2>
+<p>El propietario puede pausar o eliminar las tareas, revocar el conector desde los ajustes de su cuenta y retirar el acceso OAuth desde <a href="https://myaccount.google.com/connections">las conexiones de Google</a>. También puede eliminar los archivos y secretos del diagnóstico. Revocar el acceso impide nuevas consultas, pero no elimina automáticamente los datos previamente guardados ni los mensajes enviados.</p>
+<h2>Políticas de Google</h2>
+<p>El uso de información recibida de las API de Google está sujeto a la <a href="https://developers.google.com/terms/api-services-user-data-policy">Política de datos de usuario de los servicios API de Google</a>, incluidos sus requisitos de uso limitado.</p>
+<h2>Estas páginas públicas</h2>
+<p>Son páginas estáticas alojadas en GitHub Pages, sin formularios ni analítica propia. GitHub puede tratar los datos técnicos necesarios para servirlas conforme a sus políticas. No se muestran reservas ni se solicita iniciar sesión aquí.</p>
+<h2>Responsable</h2>
+<p>El propietario del proyecto es la cuenta <a href="https://github.com/vitoremen">vitoremen</a>. Si cambia el alcance o la finalidad del proyecto, esta política deberá actualizarse.</p>
+<p>Actualizado el 6 de octubre de 2026.</p>
 </main>
 <footer>Herramienta personal de <a href="https://github.com/vitoremen" rel="noreferrer">vitoremen</a>. Última actualización: 6 de octubre de 2026.</footer>
 </body>
